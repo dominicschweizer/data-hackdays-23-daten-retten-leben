@@ -1,4 +1,4 @@
-import { BUILDINGS } from "./buildings";
+import { BUILDINGS } from "./buildings.js";
 const oldPerson = "https://svgsilh.com/svg/1800224.svg";
 const child = "https://svgsilh.com/svg/44050.svg";
 // VARIABLES
@@ -55,12 +55,11 @@ setTimeout(() => {
 // PHASE T + One Hour
 setTimeout(() => {
   polygon1 = L.polygon(oneHourPolygon).addTo(map);
-  createRandomPeople(100, rathaus).forEach((p) => {
-    console.log(p);
+  createRandomPeople(2000, rathaus).forEach((p) => {
     var myIcon = L.icon({
-      iconUrl: child,
-      iconSize: [50, 50],
-      iconAnchor: [22, 94],
+      iconUrl: p.age > 50 ? oldPerson : child,
+      iconSize: [25, 25],
+      iconAnchor: [0, 0],
       popupAnchor: [-3, -76],
       shadowSize: [68, 95],
       shadowAnchor: [22, 94],
@@ -88,7 +87,7 @@ const createRandomInt = (max) => {
   return Math.random() * max;
 };
 const getRandomBuilding = () => {
-  return BUILDINGS()[Math.floor(Math.random * BUILDINGS.length)];
+  return BUILDINGS[Math.floor(Math.random() * BUILDINGS.length)];
 };
 /**
  *
@@ -99,10 +98,6 @@ const createRandomPeople = (noPeople, center) => {
   console.log(noPeople, center);
   const peopleArray = [];
   while (peopleArray.length < noPeople) {
-    const position = [
-      center[0] + (Math.random() - 0.5) * 0.003,
-      center[1] + (Math.random() - 0.5) * 0.003,
-    ];
     peopleArray.push({
       age: createRandomInt(100),
       position: getRandomBuilding(),
