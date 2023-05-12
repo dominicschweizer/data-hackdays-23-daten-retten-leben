@@ -83,6 +83,14 @@ setTimeout(() => {
   L.polygon(treeHourPolygon).addTo(map);
 }, T + 2000);
 
+// Stream big file in worker thread
+Papa.parse('data/geodaten.csv', {
+	worker: true,
+	step: function(results) {
+		console.log("Row:", results.data);
+	}
+});
+
 const createRandomInt = (max) => {
   return Math.random() * max;
 };
