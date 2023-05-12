@@ -18,3 +18,5 @@
 
 ## Uhr 12:10 Bedürfnisse wurden abgeklärt
 Gemeinsam mit dem Challenger Owner haben wir seine genauen Anforderungen ermittelt. Wir haben ein Flipchart erstellt und unsere Visionen visualisiert. Tatkräftig sind wir **aktuell** an der Umsetzung des Prototyps und an der Entwicklung einer Software Lösung. Dabei wurden uns neue Möglichkeiten aufgezeigt, die unser Team hoch motiviert haben. Mit Blaulicht schreiten wird in diesem Projekt an.
+
+![FlipChart Prototyp](/Docs/datahackday-flipchart-prototype.jpg")
