@@ -85,9 +85,30 @@ setTimeout(() => {
 
 // Stream big file in worker thread
 Papa.parse('data/geodaten.csv', {
-	worker: true,
-	step: function(results) {
-		console.log("Row:", results.data);
+	//worker: true,
+  download: true,
+  header: true,
+	complete: (results) => {
+	
+    let geodata = [];
+    results.data.forEach((bro) => {
+      // hier werden wir aus dem objekt ein koordinaten paar beziehen
+      const coordpair = [parseFloat(bro['WGS84-N']), parseFloat(bro['WGS84-E'])];
+      // prüfen ob die koordinaten nummerisch sind
+      if (typeof coordpair[0] !== 'number'){
+        return
+      }
+      // koordinaten ins array hinzufügen
+      geodata.push(coordpair);
+      if (geodata.length < 100) {
+        L.marker(coordpair).addTo(map);
+      }
+    
+    });
+
+    //console.log(geodata);
+
+
 	}
 });
 
