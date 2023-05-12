@@ -54,6 +54,18 @@ setTimeout(() => {
 // PHASE T + One Hour
 setTimeout(() => {
   polygon1 = L.polygon(oneHourPolygon).addTo(map);
+  createRandomPeople(100, rathaus).forEach((p) => {
+    console.log(p);
+    var myIcon = L.icon({
+      iconUrl: child,
+      iconSize: [50, 50],
+      iconAnchor: [22, 94],
+      popupAnchor: [-3, -76],
+      shadowSize: [68, 95],
+      shadowAnchor: [22, 94],
+    });
+    L.marker(p.position, { icon: myIcon, title: "ALTE PERSON" }).addTo(map);
+  });
 }, T + 1000);
 // PHASE T + TWO HOUR
 setTimeout(() => {
@@ -70,3 +82,30 @@ L.popup({ options: true })
 setTimeout(() => {
   L.polygon(treeHourPolygon).addTo(map);
 }, T + 2000);
+
+const createRandomInt = (max) => {
+  return Math.random() * max;
+};
+const getRandomBuilding = () => {
+  return BUILDINGS()[Math.floor(Math.random * BUILDINGS.length)];
+};
+/**
+ *
+ * @param {number} noPeople
+ * @param {[number, number]} center
+ */
+const createRandomPeople = (noPeople, center) => {
+  console.log(noPeople, center);
+  const peopleArray = [];
+  while (peopleArray.length < noPeople) {
+    const position = [
+      center[0] + (Math.random() - 0.5) * 0.003,
+      center[1] + (Math.random() - 0.5) * 0.003,
+    ];
+    peopleArray.push({
+      age: createRandomInt(100),
+      position: getRandomBuilding(),
+    });
+  }
+  return peopleArray;
+};
