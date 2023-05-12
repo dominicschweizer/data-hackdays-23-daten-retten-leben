@@ -16,7 +16,7 @@
 
 # News
 
-## Uhr 15:00 Uhr Erster Prozotyp wurde erschaffen
+## Uhr 15:00 Uhr Erster Prototyp digitalisiert
 Unser Motto lautet: "Keep it simple!" Dieser Leitsatz begleitet uns bei unseren ersten Versuchen. Wir haben bereits eine Webseite erstellt, jedoch ohne Daten. Der Challenge Owner zeigt sich begeistert von unseren ersten Schritten. Nun stehen wir jedoch vor der Herausforderung, die Daten bereitzustellen, um unser Vorhaben zu konkretisieren.
 
 ![Erster Prototyp](Docs/Prototyp_Entwicklung.jpg)
