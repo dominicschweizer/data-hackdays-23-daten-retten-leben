@@ -1,3 +1,4 @@
+import { BUILDINGS } from "./buildings";
 const oldPerson = "https://svgsilh.com/svg/1800224.svg";
 const child = "https://svgsilh.com/svg/44050.svg";
 // VARIABLES
