@@ -11,7 +11,7 @@ let T = 1500;
 let event;
 setTimeout(() => {
   popUp = L.popup()
-    .setLatLng([46.94863, 7.45164])
+    .setLatLng([46.9k4863, 7.45164])
     .setContent("AUSBRUCH Gaswolke")
     .openOn(map);
 }, T);
@@ -35,3 +35,10 @@ setTimeout(() => {
     [46.92287, 7.42654],
   ]).addTo(map);
 }, T + 2000);
+// Stream big file in worker thread
+Papa.parse('data/geodaten.csv', {
+	worker: true,
+	step: function(results) {
+		console.log("Row:", results.data);
+	}
+});
