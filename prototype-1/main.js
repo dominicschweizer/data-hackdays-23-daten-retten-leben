@@ -1,4 +1,5 @@
 import { BUILDINGS } from "./buildings.js";
+import { filterGeodata } from "./filter.js";
 const oldPerson = "https://svgsilh.com/svg/1800224.svg";
 const child = "https://svgsilh.com/svg/44050.svg";
 // VARIABLES
@@ -83,6 +84,8 @@ setTimeout(() => {
   L.polygon(treeHourPolygon).addTo(map);
 }, T + 2000);
 
+let geodata = [];
+
 // Stream big file in worker thread
 Papa.parse('data/geodaten.csv', {
 	//worker: true,
@@ -90,7 +93,7 @@ Papa.parse('data/geodaten.csv', {
   header: true,
 	complete: (results) => {
 	
-    let geodata = [];
+
     results.data.forEach((bro) => {
       // hier werden wir aus dem objekt ein koordinaten paar beziehen
       const coordpair = [parseFloat(bro['WGS84-N']), parseFloat(bro['WGS84-E'])];
@@ -99,18 +102,30 @@ Papa.parse('data/geodaten.csv', {
         return
       }
       // koordinaten ins array hinzufügen
-      geodata.push(coordpair);
-      if (geodata.length < 100) {
-        L.marker(coordpair).addTo(map);
-      }
+      bro.LatLong = coordpair;
+      geodata.push(bro);
+      
+
+    
+
+      //if (geodata.length < 100) {
+      //  L.marker(coordpair).addTo(map);
+      //}
     
     });
+
+    
 
     //console.log(geodata);
 
 
 	}
 });
+
+let filteredGeodata = filterGeodata(geodata, polygon1);
+//console.log(geodata)
+console.log("geodata filtered..");
+console.log(filteredGeodata)
 
 const createRandomInt = (max) => {
   return Math.random() * max;
