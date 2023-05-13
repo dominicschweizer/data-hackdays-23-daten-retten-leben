@@ -70,7 +70,12 @@ export const oldPersonIcon = L.icon({
   iconAnchor: iconSize,
 });
 export const youngPersonIcon = L.icon({
-  iconUrl: "https://svgsilh.com/svg/44050-ae0aa3.svg",
+  iconUrl: "https://svgsilh.com/svg/44050.svg",
   iconSize: iconSize,
+  iconAnchor: iconSize,
+});
+export const alarmIcon = L.icon({
+  iconUrl: "https://svgsilh.com/svg/98704-9f1212.svg",
+  iconSize: iconSize.map((n) => n * 6),
   iconAnchor: iconSize,
 });
