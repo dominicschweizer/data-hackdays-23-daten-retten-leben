@@ -27,9 +27,8 @@ https://dominicschweizer.github.io/data-hackdays-23-daten-retten-leben/prototype
 
 **Schritt 3:** Mit einem zweiten Klick werden die Windrichtung sowie die Geschwindigkeit der Schadstoffwolke markiert.
 
-Innerhalb von Sekunden wird angezeigt, wie viele Personen und insbesondere wie viele besonders schutzbedürftige Personen potenziell betroffen sind.
-
-Die Schadstoffwolke breitet sich aus und im Verlauf einer Stunde erreicht sie weitere Personen.
+_Innerhalb von Sekunden wird angezeigt, wie viele Personen und insbesondere wie viele besonders schutzbedürftige Personen potenziell betroffen sind.
+Die Schadstoffwolke breitet sich aus und im Verlauf einer Stunde erreicht sie weitere Personen._
 
 Nun können Sie einen Evakuierungsplan erstellen und Einsatzkräfte mobilisieren. Vergessen Sie nicht : **Don't Panic!**
 
