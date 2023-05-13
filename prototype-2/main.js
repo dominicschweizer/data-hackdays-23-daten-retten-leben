@@ -4,6 +4,7 @@ import {
   getPeopleInPolygon,
   oldPersonIcon,
   youngPersonIcon,
+  alarmIcon,
 } from "./lib.js";
 var map = L.map("map").setView([46.94863, 7.45164], 16);
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -12,7 +13,6 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
 }).addTo(map);
 const data = loadData();
-
 let clickOrigin;
 let originMarker;
 let clickWind;
@@ -22,6 +22,8 @@ let markerGroup;
 const MAXHOURS = 5;
 let hour = 0;
 let polygon;
+updateTextnode();
+
 map.on("click", (e) => {
   if (clickOrigin && clickWind) {
     clickOrigin = undefined;
@@ -29,16 +31,17 @@ map.on("click", (e) => {
     map.removeLayer(originMarker);
     map.removeLayer(windMarker);
     map.removeLayer(windVector);
+    map.removeLayer(markerGroup);
     return;
   }
   if (clickOrigin) {
     clickWind = e.latlng;
-    windMarker = L.marker(clickWind).addTo(map);
+    windMarker = L.marker(clickWind, { icon: alarmIcon }).addTo(map);
     triggerCloudCalculation();
     return;
   }
   clickOrigin = e.latlng;
-  originMarker = L.marker(clickOrigin).addTo(map);
+  originMarker = L.marker(clickOrigin, { icon: alarmIcon }).addTo(map);
 });
 
 function triggerCloudCalculation() {
@@ -57,25 +60,45 @@ function triggerCloudCalculation() {
     const people = getPeopleInPolygon(windPolygon, data);
     console.log(people);
     const markers = [];
-    people
-      .filter((p) => p.Alter >= 75)
-      .forEach((person) => {
-        markers.push(
-          L.marker(L.latLng(...person.position), { icon: oldPersonIcon })
-        );
-      });
-    people
-      .filter((p) => p.Alter <= 10)
-      .forEach((person) => {
-        markers.push(
-          L.marker(L.latLng(...person.position), { icon: youngPersonIcon })
-        );
-      });
+    const oldPeople = people.filter((p) => p.Alter >= 75);
+    oldPeople.forEach((person) => {
+      markers.push(
+        L.marker(L.latLng(...person.position), { icon: oldPersonIcon })
+      );
+    });
+    const youngPeople = people.filter((p) => p.Alter <= 10);
+    youngPeople.forEach((person) => {
+      markers.push(
+        L.marker(L.latLng(...person.position), { icon: youngPersonIcon })
+      );
+    });
+    updateTextnode(people, oldPeople, youngPeople);
     markerGroup = L.featureGroup(markers).addTo(map);
     hour += 1;
     if (hour > MAXHOURS) clearInterval(intervall);
   }, 1000);
-} /*
+}
+
+function updateTextnode(noPeople, noOldPeople, noYoungPeople) {
+  document.getElementById("alarm").textContent =
+    windVector !== undefined
+      ? `Alarm bei Koordinaten ${clickOrigin}`
+      : "Kein Alarm ausgelöst. Starten sie einen Alarm!";
+  document.getElementById("noPeople").textContent =
+    noPeople === undefined
+      ? "Keine Personen betroffen"
+      : `${noPeople.length} Personen betroffen`;
+  document.getElementById("oldPeople").textContent =
+    noOldPeople === undefined
+      ? "Keine Personen > 75 Jahre betroffen"
+      : `${noOldPeople.length} Personen betroffen`;
+  document.getElementById("youngPeople").textContent =
+    noYoungPeople === undefined
+      ? "Keine Personen < 10 Jahren betroffen"
+      : `${noYoungPeople.length} Personen < 10 Jahren betroffen`;
+}
+
+/*
 const rathaus = [46.94866, 7.45144];
 const wind = [46.94806, 7.45004];
 
