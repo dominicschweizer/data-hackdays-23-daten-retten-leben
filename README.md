@@ -20,12 +20,14 @@
 
 Das Team hat seine Arbeit aufgeteilt. Team 1 konzentrierte sich darauf, die besonders schützenswerten Personen innerhalb der Polygone zu filtern und anzuzeigen. Team 2 widmete sich der Berechnung der Wetterbedingungen für ein bestimmtes Szenario. Dies wurde in einem agilen Arbeitsprozess parallel durchgeführt. Das Hauptziel bestand darin, den Bewegungspfad der Schadstoffwolke zu verfolgen und festzustellen, welche schützenswerten Personen sich innerhalb der Evakuierungszone befinden.
 
-Im Demo (hier als GIF unter dargestellt) wird der Ereignisort als erster Punkt auf der Karte markiert, gefolgt von der Richtung und Geschwindigkeit der Schadstoffwolke als zweitem Punkt. Die Filterungsergebnisse sind im Bild nebenan zu sehen.
+Im Demo (hier als GIF unter dargestellt) wird der Ereignisort als erster Punkt auf der Karte markiert, gefolgt von der Richtung und Geschwindigkeit der Schadstoffwolke als zweitem Punkt. 
+![Wetterberechnung](Docs/ezgif-4-553d4623c6.gif)
+
+Die Filterungsergebnisse sind in diesem Bild zu sehen.
+![Filterung](Docs/Prototyp_Entwicklung3.jpg)
 
 Derzeit fügen wir unsere Fortschritte zusammen. Es ist auch von grosser Bedeutung, das gesamte Projekt benutzerfreundlicher zu gestalten, damit dem Endbenutzer sofort die Anzahl der Personen im Allgemeinen sowie weitere Details angezeigt werden. Dieser Schritt wird jedoch nach der Mittagspause umgesetzt.
 
-![Filterung](Docs/Prototyp_Entwicklung3.jpg)
-![Wetterberechnung](Docs/ezgif-4-553d4623c6.gif)
 
 ## Uhr 20:00 Uhr Prototyp mit Test Daten ergänzt
 
