@@ -20,8 +20,11 @@
 
 Hier sind die Schritte zur Handlung:
 
-**Schritt 1:** Bitte öffnen Sie den folgenden Link: https://dominicschweizer.github.io/data-hackdays-23-daten-retten-leben/prototype-2/
+**Schritt 1:** Bitte öffnen Sie den folgenden Link: 
+https://dominicschweizer.github.io/data-hackdays-23-daten-retten-leben/prototype-2/
+
 **Schritt 2:** Durch einen Klick auf der Karte wird der betroffene Ort markiert, an dem der Alarm gemeldet wurde.
+
 **Schritt 3:** Mit einem zweiten Klick werden die Windrichtung sowie die Geschwindigkeit der Schadstoffwolke markiert.
 
 Innerhalb von Sekunden wird angezeigt, wie viele Personen und insbesondere wie viele besonders schutzbedürftige Personen potenziell betroffen sind.
