@@ -1,4 +1,6 @@
+
 import { BUILDINGS } from "./buildings.js";
+let people = null;
 const oldPerson = "https://svgsilh.com/svg/1800224.svg";
 const child = "https://svgsilh.com/svg/44050.svg";
 // VARIABLES
@@ -64,7 +66,9 @@ setTimeout(() => {
       shadowSize: [68, 95],
       shadowAnchor: [22, 94],
     });
-    L.marker(p.position, { icon: myIcon, title: "ALTE PERSON" }).addTo(map);
+    p.title = p.age < 10 ? "U10" : p.age > 70 ? "Ü70" : null;
+    if (!p.title) return; 
+    L.marker(p.position, { icon: myIcon, title: p.title }).addTo(map);
   });
 }, T + 1000);
 // PHASE T + TWO HOUR
@@ -99,13 +103,15 @@ Papa.parse('data/geodaten.csv', {
         return
       }
       // koordinaten ins array hinzufügen
-      geodata.push(coordpair);
-      if (geodata.length < 100) {
-        L.marker(coordpair).addTo(map);
-      }
+      bro.position   = coordpair;
+      geodata.push(bro);
+     // if (geodata.length < 100) {
+      //  L.marker(coordpair).addTo(map);
+      //}
     
     });
 
+    people = geodata;
     //console.log(geodata);
 
 
@@ -125,12 +131,16 @@ const getRandomBuilding = () => {
  */
 const createRandomPeople = (noPeople, center) => {
   console.log(noPeople, center);
-  const peopleArray = [];
-  while (peopleArray.length < noPeople) {
-    peopleArray.push({
-      age: createRandomInt(100),
-      position: getRandomBuilding(),
-    });
-  }
+  let peopleArray = [];
+  people.forEach((person)=> {
+
+    if (peopleArray.length < noPeople) {
+
+      person.age= createRandomInt(100);
+
+      peopleArray.push(person);
+    }
+  });
+
   return peopleArray;
 };
