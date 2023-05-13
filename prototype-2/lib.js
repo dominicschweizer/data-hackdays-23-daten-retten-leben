@@ -7,7 +7,6 @@
 export function createWindPolygon(origin, windVector, time) {
   const vOrigin = new Vector(...origin);
   const vWind = new Vector(...windVector).sub(vOrigin);
-  console.log(vOrigin, vWind);
   const rotWind = vWind.rotateDegrees(90);
   // WindShift
   const windShift = rotWind.clone().rotateDegrees(180).mulScalarSelf(0.5);
@@ -23,6 +22,5 @@ export function createWindPolygon(origin, windVector, time) {
     targetPoint1.toArray(),
     targetPoint2.toArray(),
   ];
-  console.log(polygon);
   return polygon;
 }
