@@ -20,6 +20,7 @@ let clickWind;
 let windMarker;
 let windVector;
 let markerGroup;
+let intervall;
 const MAXHOURS = 5;
 let hour = 0;
 let polygon;
@@ -29,10 +30,18 @@ map.on("click", (e) => {
   if (clickOrigin && clickWind) {
     clickOrigin = undefined;
     clickWind = undefined;
+    map.eachLayer(function (layer) {
+      console.log(layer);
+    });
     map.removeLayer(originMarker);
     map.removeLayer(windMarker);
     map.removeLayer(windVector);
+    map.removeLayer(polygon);
+    markerGroup.clearLayers();
     map.removeLayer(markerGroup);
+    console.log("Testing");
+    clearInterval(intervall);
+    location.reload(); // hack hack hack
     return;
   }
   if (clickOrigin) {
@@ -50,7 +59,7 @@ function triggerCloudCalculation() {
     map
   );
   hour = 0;
-  const intervall = setInterval(() => {
+  intervall = setInterval(() => {
     const originKoords = [originMarker._latlng.lat, originMarker._latlng.lng];
     const windKoords = [windMarker._latlng.lat, windMarker._latlng.lng];
     if (polygon) map.removeLayer(polygon);
@@ -74,7 +83,8 @@ function triggerCloudCalculation() {
       );
     });
     updateTextnode(people, oldPeople, youngPeople);
-    markerGroup = L.featureGroup(markers).addTo(map);
+    markerGroup = L.layerGroup(markers).addTo(map);
+    console.log(markerGroup);
     hour += 1;
     if (hour > MAXHOURS) clearInterval(intervall);
   }, 1000);
@@ -98,22 +108,3 @@ function updateTextnode(noPeople, noOldPeople, noYoungPeople) {
       ? "Keine Personen < 10 Jahren betroffen"
       : `${noYoungPeople.length} Personen < 10 Jahren betroffen`;
 }
-
-/*
-const rathaus = [46.94866, 7.45144];
-const wind = [46.94806, 7.45004];
-
-originMarker = L.marker(rathaus).addTo(map);
-windVector = L.polyline([rathaus, wind], { color: "red" }).addTo(map);
-windMarker = L.marker(wind).addTo(map);
-
-const intervall = setInterval(() => {
-  if (polygon) map.removeLayer(polygon);
-  polygon = L.polygon(createWindPolygon(rathaus, wind, hour), {
-    color: "yellow",
-  }).addTo(map);
-  hour += 1;
-  if (hour > MAXHOURS) clearInterval(intervall);
-}, 1000);
-//L.polygon(createWindPolygon(rathaus, wind, 3), { color: "yellow" }).addTo(map);
-*/
