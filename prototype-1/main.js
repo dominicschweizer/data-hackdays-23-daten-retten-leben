@@ -57,6 +57,7 @@ setTimeout(() => {
 // PHASE T + One Hour
 setTimeout(() => {
   polygon1 = L.polygon(oneHourPolygon).addTo(map);
+  return
   createRandomPeople(2000, rathaus).forEach((p) => {
     var myIcon = L.icon({
       iconUrl: p.age > 50 ? oldPerson : child,
@@ -70,10 +71,11 @@ setTimeout(() => {
     if (!p.title) return; 
     L.marker(p.position, { icon: myIcon, title: p.title }).addTo(map);
   });
+  
 }, T + 1000);
 // PHASE T + TWO HOUR
 setTimeout(() => {
-  L.polygon(twoHourPolygon).addTo(map);
+  polygon2 = L.polygon(twoHourPolygon).addTo(map);
   popUp = L.popup([46.94587, 7.44254])
     .setContent("IN EINER STUNDE Person über 75 Jahre")
     .openOn(map);
@@ -113,8 +115,8 @@ Papa.parse('data/geodaten.csv', {
 
     people = geodata;
     //console.log(geodata);
-
-
+    filterPeople(twoHourPolygon)
+    console.log(people[12])
 	}
 });
 
@@ -144,3 +146,44 @@ const createRandomPeople = (noPeople, center) => {
 
   return peopleArray;
 };
+function filterPeople(polygonPoints) {
+  const geoJson = [...polygonPoints]
+  geoJson.push(geoJson[0])
+  // Erstelle ein Polygon, das den Bereich definiert, in dem die Datenpunkte angezeigt werden sollen
+  const polygon = turf.polygon([
+    [
+      ...geoJson
+    ]
+  ]);
+
+  // Iteriere über die Datenpunkte und überprüfe, ob sie sich innerhalb des Polygons befinden
+  people.forEach(function (person) {
+    try{
+      var latLng = L.latLng(...person.position);
+      var point = turf.point(person.position);
+      if (turf.booleanPointInPolygon(point, polygon)) {
+        // Datenpunkt liegt innerhalb des Polygons, zeige ihn auf der Karte an
+        var marker = L.marker(latLng).addTo(map);
+        marker.bindPopup(person.name);
+      }
+    }catch(e){
+      console.log(e)
+      console.log(person)
+    }
+    
+  });
+}
+const test = L.polygon(twoHourPolygon)
+const t2 = [...twoHourPolygon]
+t2.push(t2[0])
+console.log(test)
+const poly = turf.polygon([
+  [
+...t2
+  ]
+])
+console.log('qwdqwdqwd')
+console.log(turf.booleanContains(poly, turf.point([46.94781, 7.44087
+])))
+var area = turf.area(poly);
+console.log(area)
