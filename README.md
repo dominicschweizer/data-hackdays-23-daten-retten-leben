@@ -16,6 +16,15 @@
 
 # News
 
+## Samstag, 14:00 Uhr Prototyp vollendet
+
+Das Team hat nun den Prototypen erfolgreich abgeschlossen. Unser nächster Schritt besteht darin, ihn an die Endbenutzer und die Teilnehmer des Data Hackday weiterzugeben, um sie zu befähigen. Wir sind überaus glücklich und zufrieden mit den zwei Tagen harter Arbeit. Es hat uns wirklich im Team Spass gemacht, und wir haben etwas Gutes erreicht.
+
+Die Anleitung wird zu einem späteren Zeitpunkt auf dieser Seite veröffentlicht.
+
+Wer schon mal "Spienzlä" möchte, hier findet Ihr den offiziellen Link: 
+https://dominicschweizer.github.io/data-hackdays-23-daten-retten-leben/prototype-2/
+
 ## Samstag, 11:30 Uhr Prototyp wurde gefiltert
 
 Das Team hat seine Arbeit aufgeteilt. Team 1 konzentrierte sich darauf, die besonders schützenswerten Personen innerhalb der Polygone zu filtern und anzuzeigen. Team 2 widmete sich der Berechnung der Wetterbedingungen für ein bestimmtes Szenario. Dies wurde in einem agilen Arbeitsprozess parallel durchgeführt. Das Hauptziel bestand darin, den Bewegungspfad der Schadstoffwolke zu verfolgen und festzustellen, welche schützenswerten Personen sich innerhalb der Evakuierungszone befinden.
