@@ -24,8 +24,8 @@ Im Demo (hier als GIF unter dargestellt) wird der Ereignisort als erster Punkt a
 
 Derzeit fügen wir unsere Fortschritte zusammen. Es ist auch von grosser Bedeutung, das gesamte Projekt benutzerfreundlicher zu gestalten, damit dem Endbenutzer sofort die Anzahl der Personen im Allgemeinen sowie weitere Details angezeigt werden. Dieser Schritt wird jedoch nach der Mittagspause umgesetzt.
 
-![Filterung] (Docs/Prototyp_Entwicklung3.jpg) 
-![Wetterberechnung] (Docs/ezgif-4-553d4623c6.gif)
+![Filterung](Docs/Prototyp_Entwicklung3.jpg)
+![Wetterberechnung](Docs/ezgif-4-553d4623c6.gif)
 
 ## Uhr 20:00 Uhr Prototyp mit Test Daten ergänzt
 
