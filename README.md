@@ -25,7 +25,7 @@ https://dominicschweizer.github.io/data-hackdays-23-daten-retten-leben/prototype
 
 **Schritt 2:** Durch einen Klick auf der Karte wird der betroffene Ort markiert, an dem der Alarm gemeldet wurde.
 
-**Schritt 3:** Mit einem zweiten Klick werden die Windrichtung sowie die Geschwindigkeit der Schadstoffwolke markiert.
+**Schritt 3:** Mit einem zweiten Klick werden die Windrichtung (Abstand zum Ereignispunkt) sowie die Geschwindigkeit der Schadstoffwolke markiert.
 
 _Innerhalb von Sekunden wird angezeigt, wie viele Personen und insbesondere wie viele besonders schutzbedürftige Personen potenziell betroffen sind.
 Die Schadstoffwolke breitet sich aus und im Verlauf einer Stunde erreicht sie weitere Personen._
