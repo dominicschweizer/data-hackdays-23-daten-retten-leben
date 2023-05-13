@@ -16,6 +16,14 @@
 
 # News
 
+## Uhr 20:00 Uhr Prototyp mit Test Daten ergänzt
+
+Die Datenaufbereitung für die Karte erwies sich als herausfordernd. Wir führten intensive Meetings durch, um zu bestimmen, wie wir die Daten sammeln und publizieren können, um Bereiche zu analysieren, in denen besonders schutzbedürftige Kinder (unter 10 Jahren) und ältere Menschen (über 70 Jahren) leben. Um den Fokus auf die Benutzerfreundlichkeit zu legen, musste auf den ersten Blick erkennbar sein, wo sich diese besonders schutzbedürftigen Personen befinden. Wir haben spezielle Icons für diese Personengruppen ausgewählt. Zusätzlich mussten wir die Berechnung der Polygone durchführen und den Datenschutz sicherstellen. Um dies zu gewährleisten nutzten wir hier Test Daten. 
+
+Unser kleines Team hat sich jedoch als äusserst leistungsstark erwiesen, und wir sind schon nach wenigen Stunden zu einer familiären Gemeinschaft zusammengewachsen. Die Umsetzung gestaltete sich schwierig, da uns bestimmte Hardware-Elemente wie Monitore und Tastaturen fehlten. Dennoch haben wir alles auf Laptops programmiert und debugged. Unsere Motivation, Leben zu retten, ist weiterhin ungebrochen, und wir sind bereit, uns jedem noch so kleinen Fehler und jede fehlende Hardware Eskapade anzunehmen, um den Grundstein dafür zu legen.
+
+![Weiterentwickelter Prototyp](Docs/Prototyp_Entwicklung2.jpg)
+
 ## Uhr 15:00 Uhr Erster Prototyp digitalisiert
 Unser Motto lautet: "Keep it simple!" Dieser Leitsatz begleitet uns bei unseren ersten Versuchen. Wir haben bereits eine Webseite erstellt, jedoch ohne Daten. Der Challenge Owner zeigt sich begeistert von unseren ersten Schritten. Nun stehen wir jedoch vor der Herausforderung, die Daten bereitzustellen, um unser Vorhaben zu konkretisieren.
 
