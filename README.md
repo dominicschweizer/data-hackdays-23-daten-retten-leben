@@ -22,7 +22,7 @@ Das Team hat seine Arbeit aufgeteilt. Team 1 konzentrierte sich darauf, die beso
 
 Es wird der Ereignisort als erster Punkt auf der Karte markiert, gefolgt von der Richtung und Geschwindigkeit der Schadstoffwolke als zweitem Punkt.
 
-![wetterberechnung](Docs/wetterberechnung.jpg)
+![wetterberechnung]
 
 Die Filterungsergebnisse sind in diesem Bild zu sehen.
 ![Filterung](Docs/Prototyp_Entwicklung3.jpg)
