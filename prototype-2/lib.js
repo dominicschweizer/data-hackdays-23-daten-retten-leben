@@ -1,3 +1,4 @@
+const iconSize = [10, 10];
 /**
  *
  * @param {[number, number]} origin
@@ -24,3 +25,52 @@ export function createWindPolygon(origin, windVector, time) {
   ];
   return polygon;
 }
+
+export function loadData() {
+  // Stream big file in worker thread
+  let geodata = [];
+  Papa.parse("../prototype-1/data/geodaten.csv", {
+    //worker: true,
+    download: true,
+    header: true,
+    complete: (results) => {
+      results.data.forEach((bro) => {
+        // hier werden wir aus dem objekt ein koordinaten paar beziehen
+        const coordpair = [
+          parseFloat(bro["WGS84-N"]),
+          parseFloat(bro["WGS84-E"]),
+        ];
+        bro.position = coordpair;
+        // prüfen ob die koordinaten nummerisch sind
+        if (typeof coordpair[0] !== "number" || Number.isNaN(coordpair[0])) {
+          return;
+        }
+        geodata.push(bro);
+      });
+    },
+  });
+  return geodata;
+}
+
+export function getPeopleInPolygon(polygon, people) {
+  const poly = buildTurfPolygon(polygon);
+  return people.filter((p) => {
+    return turf.booleanPointInPolygon(turf.point(p.position), poly);
+  });
+}
+function buildTurfPolygon(polygon) {
+  const pPoints = [...polygon];
+  // close the polygon
+  pPoints.push(pPoints[0]);
+  return turf.polygon([[...pPoints]]);
+}
+export const oldPersonIcon = L.icon({
+  iconUrl: "https://svgsilh.com/svg/1800224-ff5722.svg",
+  iconSize: iconSize,
+  iconAnchor: iconSize,
+});
+export const youngPersonIcon = L.icon({
+  iconUrl: "https://svgsilh.com/svg/44050-ae0aa3.svg",
+  iconSize: iconSize,
+  iconAnchor: iconSize,
+});
