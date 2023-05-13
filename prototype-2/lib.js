@@ -79,3 +79,8 @@ export const alarmIcon = L.icon({
   iconSize: iconSize.map((n) => n * 6),
   iconAnchor: iconSize,
 });
+export const windIcon = L.icon({
+  iconUrl: "https://svgsilh.com/svg/44535.svg",
+  iconSize: iconSize.map((n) => n * 5),
+  iconAnchor: iconSize,
+});

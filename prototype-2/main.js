@@ -5,6 +5,7 @@ import {
   oldPersonIcon,
   youngPersonIcon,
   alarmIcon,
+  windIcon,
 } from "./lib.js";
 var map = L.map("map").setView([46.94863, 7.45164], 16);
 L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -36,7 +37,7 @@ map.on("click", (e) => {
   }
   if (clickOrigin) {
     clickWind = e.latlng;
-    windMarker = L.marker(clickWind, { icon: alarmIcon }).addTo(map);
+    windMarker = L.marker(clickWind, { icon: windIcon }).addTo(map);
     triggerCloudCalculation();
     return;
   }
@@ -91,7 +92,7 @@ function updateTextnode(noPeople, noOldPeople, noYoungPeople) {
   document.getElementById("oldPeople").textContent =
     noOldPeople === undefined
       ? "Keine Personen > 75 Jahre betroffen"
-      : `${noOldPeople.length} Personen betroffen`;
+      : `${noOldPeople.length} Personen > 75 Jahre betroffen`;
   document.getElementById("youngPeople").textContent =
     noYoungPeople === undefined
       ? "Keine Personen < 10 Jahren betroffen"
