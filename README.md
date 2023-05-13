@@ -14,7 +14,34 @@
 - Regeln: Regel basierend auf verschiedenen Attributen der darinliegenden Gebäude
 - Simulation Prognose: Verschiedene Gebiete mit Zeitachse darstellen.
 
+# Anleitung
+
+## Fall: Ein Alarm für eine Schadstoffwolke wurde ausgelöst und in der Notrufzentrale gemeldet.
+
+Hier sind die Schritte zur Handlung:
+
+**Schritt 1:** Bitte öffnen Sie den folgenden Link: 
+https://dominicschweizer.github.io/data-hackdays-23-daten-retten-leben/prototype-2/
+
+**Schritt 2:** Durch einen Klick auf der Karte wird der betroffene Ort markiert, an dem der Alarm gemeldet wurde.
+
+**Schritt 3:** Mit einem zweiten Klick werden die Windrichtung (Abstand zum Ereignispunkt) sowie die Geschwindigkeit der Schadstoffwolke markiert.
+
+_Innerhalb von Sekunden wird angezeigt, wie viele Personen und insbesondere wie viele besonders schutzbedürftige Personen potenziell betroffen sind.
+Die Schadstoffwolke breitet sich aus und im Verlauf einer Stunde erreicht sie weitere Personen._
+
+Nun können Sie einen Evakuierungsplan erstellen und Einsatzkräfte mobilisieren. Vergessen Sie nicht : **Don't Panic!**
+
 # News
+
+## Samstag, 14:00 Uhr Prototyp vollendet
+
+Das Team hat nun den Prototypen erfolgreich abgeschlossen. Unser nächster Schritt besteht darin, ihn an die Endbenutzer und die Teilnehmer des Data Hackday weiterzugeben, um sie zu befähigen. Wir sind überaus glücklich und zufrieden mit den zwei Tagen harter Arbeit. Es hat uns wirklich im Team Spass gemacht, und wir haben etwas Gutes erreicht.
+
+Die Anleitung wird zu einem späteren Zeitpunkt auf dieser Seite veröffentlicht.
+
+Wer schon mal "Spienzlä" möchte, hier findet Ihr den offiziellen Link: 
+https://dominicschweizer.github.io/data-hackdays-23-daten-retten-leben/prototype-2/
 
 ## Samstag, 11:30 Uhr Prototyp wurde gefiltert
 
